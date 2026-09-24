@@ -34,7 +34,7 @@ public class RobotCentricTeleOp extends NextFTCOpMode {
     //private ShootingSystem shootingSystem;
     //private ShootingDirectionServo shootingDirectionServo;
     //private BallLoadingServo ballLoadingServo;
-    private Intake intakeSystem;
+    private Intake intakeSystem; //Sample Change
 
     // This is the "constructor" — runs once when the program starts loading
     public RobotCentricTeleOp() {
