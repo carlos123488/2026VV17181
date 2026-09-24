@@ -62,6 +62,7 @@ public class Intake implements Subsystem {
      * Command to start or stop the intake motor.
      * When the button is pressed:
      * - If it's stopped, it starts spinning forward (to pull game pieces in)
+     * As long as power is between 0-0.1 it is still considered intake is off
      * - If it's already spinning, it stops
      */
     public Command startStop = new InstantCommand(() -> {

@@ -34,21 +34,21 @@ public class RobotCentricTeleOp extends NextFTCOpMode {
     //private ShootingSystem shootingSystem;
     //private ShootingDirectionServo shootingDirectionServo;
     //private BallLoadingServo ballLoadingServo;
-    //private Intake intakeSystem;
+    private Intake intakeSystem;
 
     // This is the "constructor" — runs once when the program starts loading
     public RobotCentricTeleOp() {
 
         // We connect our subsystems to the robot and give them access to telemetry (data shown on driver station)
         //shootingSystem = ShootingSystem.getInstance(telemetry);
-        //intakeSystem = Intake.getInstance(telemetry);
+        intakeSystem = Intake.getInstance(telemetry);
         //shootingDirectionServo = ShootingDirectionServo.getInstance(telemetry);
         //ballLoadingServo = BallLoadingServo.getInstance(telemetry);
 
         // Here we “add” all these subsystems so NextFTC can manage and update them automatically
         addComponents(
                 //new SubsystemComponent(shootingSystem),
-                //new SubsystemComponent(intakeSystem),
+                new SubsystemComponent(intakeSystem),
                 //new SubsystemComponent(shootingDirectionServo),
                 //new SubsystemComponent(ballLoadingServo),
                 BulkReadComponent.INSTANCE,   // reads all sensors at once for faster updates
@@ -97,7 +97,7 @@ public class RobotCentricTeleOp extends NextFTCOpMode {
 
         // Intake System Controls on Gamepad 2 as before
         //Gamepads.gamepad2().b().whenBecomesTrue(intakeSystem.reverse);
-        //Gamepads.gamepad2().a().whenBecomesTrue(intakeSystem.startStop);
+        Gamepads.gamepad1().a().whenBecomesTrue(intakeSystem.startStop);
 
 /*
         // B button → reverse the intake (spit out the balls)
